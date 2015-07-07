@@ -12,15 +12,12 @@
 $appId = "c5d1cba1-5e3f-4ba0-941d-9b0a371fe719";
 $appSecret = "39a7a518-9ac8-4a9e-87bc-7885f33cf18c";
 $title = "test";
-$out_trade_no = "test0001";
+$out_trade_no = "test" . time();
 $trace_id = "testcustomer";
 $amount = "1";
 
 //2.计算sign只需要appId， title， amount ，out_trade_no 和appSecret
 $sign = md5($appId.$title.$amount.$out_trade_no.$appSecret);
-$data["sign"] = $sign;
-
-$data["optional"] = json_decode(json_encode(array("hello" => "1")));
 ?>
 <script>
     document.getElementById("test").onclick = function() {
@@ -30,7 +27,7 @@ $data["optional"] = json_decode(json_encode(array("hello" => "1")));
         BC.click({
             "title": "test",
             "amount": "1",
-            "out_trade_no": "test0001",
+            "out_trade_no": "<?php echo $out_trade_no;?>", //唯一订单号
             "trace_id" : "testcustomer",
             "sign" : "<?php echo $sign;?>",
             /**
