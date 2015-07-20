@@ -19,6 +19,7 @@ class SpayButtonHandler(tornado.web.RequestHandler):
         out_trade_no = "test" + str(int(time()))
         trace_id = "testcustomer"
         amount = "1"
+        #2 计算签名sign
         md5 = hashlib.md5()
         md5.update(bc_app_id + title + amount + out_trade_no + bc_app_secret)
         sign = md5.hexdigest()
