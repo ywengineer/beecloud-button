@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>demo js pay</title>
+</head>
+<body>
+<button id="test">test</button>
+<!--1.添加控制台获得的script标签-->
+<script id='spay-script' type='text/javascript' src='https://jspay.beecloud.cn/1/pay/jsbutton/returnscripts?appId=c5d1cba1-5e3f-4ba0-941d-9b0a371fe719'></script>
+<script>
+    document.getElementById("test").onclick = function() {
+        /**
+         * 3. 调用BC.click 接口传递参数
+         */
+        BC.click({
+            "title": "{{title}}",
+            "amount": "{{amount}}",
+            "out_trade_no": "{{out_trade_no}}", //唯一订单号
+            "trace_id" : "{{trace_id}}",
+            "sign" : "{{sign}}",
+            /**
+             * optional 为自定义参数对象，目前只支持基本类型的key ＝》 value, 不支持嵌套对象；
+             * 回调时如果有optional则会传递给webhook地址，webhook的使用请查阅文档
+             */
+            "optional": {"test": "willreturn"}
+        });
+    };
+</script>
+</body>
+</html>
