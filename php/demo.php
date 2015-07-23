@@ -21,6 +21,10 @@ $sign = md5($appId.$title.$amount.$out_trade_no.$appSecret);
 ?>
 <script>
     document.getElementById("test").onclick = function() {
+        
+        BC.err = function(data) {
+            //注册错误信息接受
+        }
         /**
          * 3. 调用BC.click 接口传递参数
          */
