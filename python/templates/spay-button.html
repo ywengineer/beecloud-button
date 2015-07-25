@@ -10,6 +10,11 @@
 <script id='spay-script' type='text/javascript' src='https://jspay.beecloud.cn/1/pay/jsbutton/returnscripts?appId=c5d1cba1-5e3f-4ba0-941d-9b0a371fe719'></script>
 <script>
     document.getElementById("test").onclick = function() {
+
+        BC.err = function(data) {
+            //注册错误信息接受
+            alert(data["ERROR"]);
+        }
         /**
          * 3. 调用BC.click 接口传递参数
          */

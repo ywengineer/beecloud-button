@@ -67,6 +67,12 @@ String getMessageDigest(String s) {
 
 <script type="text/javascript">
     document.getElementById("test").onclick = function() {
+
+
+        BC.err = function(data) {
+            //注册错误信息接受
+            alert(data["ERROR"]);
+        }
         /**
         * 3. 需要支付时调用BC.click接口传入参数
         * 注: sign的解释见后文

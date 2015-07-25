@@ -24,6 +24,7 @@ $sign = md5($appId.$title.$amount.$out_trade_no.$appSecret);
         
         BC.err = function(data) {
             //注册错误信息接受
+            alert(data["ERROR"]);
         }
         /**
          * 3. 调用BC.click 接口传递参数
