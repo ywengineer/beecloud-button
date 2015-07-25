@@ -11,7 +11,7 @@
 String getMessageDigest(String s) {
     char hexDigits[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     try {
-        byte[] buffer = s.getBytes();
+        byte[] buffer = s.getBytes("UTF-8");
         //获得MD5摘要算法的 MessageDigest 对象
         MessageDigest mdTemp = MessageDigest.getInstance("MD5");
 
