@@ -1,4 +1,4 @@
-##秒支付Button集成
+## 秒支付Button
 
 ### 使用前准备
 1. BeeCloud[注册](http://beecloud.cn/register/)账号
