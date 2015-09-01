@@ -49,6 +49,9 @@ $data["optional"] = json_decode(json_encode(array("hello" => "1")));
 <div><?php echo json_encode($data) ?></div>
 <script>
     document.getElementById("test").onclick = function() {
+        asyncPay();
+    };
+    function bcPay() {
         /**
          * click调用错误返回：默认行为console.log(err)
          */
@@ -57,7 +60,18 @@ $data["optional"] = json_decode(json_encode(array("hello" => "1")));
             console.log(err);
         }
         BC.click(<?php echo json_encode($data) ?>);
-    };
+    }
+    function asyncPay() {
+        if (typeof BC == "undefined"){
+            if( document.addEventListener ){
+                document.addEventListener('beecloud:onready', bcPay, false);
+            }else if (document.attachEvent){
+                document.attachEvent('beecloud:onready', bcPay);
+            }
+        }else{
+            bcPay();
+        }
+    }
 
 </script>
 </body>
