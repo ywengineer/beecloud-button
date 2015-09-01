@@ -28,29 +28,44 @@
 <script id='spay-script' type='text/javascript' src='https://jspay.beecloud.cn/1/pay/jsbutton/returnscripts?appId=c5d1cba1-5e3f-4ba0-941d-9b0a371fe719'></script>
 <script>
     document.getElementById("test").onclick = function() {
-    	  /**
+        asyncPay();
+    };
+    function bcPay() {
+        /**
          * click调用错误返回：默认行为console.log(err)
          */
-        BC.err = function(err) {
-            //err 为object, 例 ｛”ERROR“ : "xxxx"｝;
+        BC.err = function(data) {
+            //注册错误信息接受
+            alert(data["ERROR"]);
         }
         /**
-         * 2. 需要支付时调用BC.click接口传入参数
-         * 注: sign的解释见后文
+         * 3. 调用BC.click 接口传递参数
          */
         BC.click({
-            "title":"test", //商品名
-            "amount":"1",  //总价（分）
-            "out_trade_no":"test0001", //自定义订单号
-            "trace_id":"testcustomer", //自定义购买者id
-            "sign":"e68639606d2d0a99b2e2c8872729d004", //商品信息hash值，32位小写，含义和生成方式见下文
-            "return_url" : "http://payservice.beecloud.cn/spay/result.php", //可选，默认为http://payservice.beecloud.cn/spay/result.php
-            "optional" : {"hello":"1"} //可选，自定义webhook
+            "title": "test",
+            "amount": "1",
+            "out_trade_no": "<?php echo $out_trade_no;?>", //唯一订单号
+            "trace_id" : "testcustomer",
+            "sign" : "<?php echo $sign;?>",
+            /**
+             * optional 为自定义参数对象，目前只支持基本类型的key ＝》 value, 不支持嵌套对象；
+             * 回调时如果有optional则会传递给webhook地址，webhook的使用请查阅文档
+             */
+            "optional": {"test": "willreturn"}
         });
-       
-    };
 
-
+    }
+    function asyncPay() {
+        if (typeof BC == "undefined"){
+            if( document.addEventListener ){
+                document.addEventListener('beecloud:onready', bcPay, false);
+            }else if (document.attachEvent){
+                document.attachEvent('beecloud:onready', bcPay);
+            }
+        }else{
+            bcPay();
+        }
+    }
 </script>
 </body>
 </html>
@@ -123,6 +138,9 @@ if (!isset($_GET['code'])){
 <div><?php echo json_encode($data) ?></div>
 <script>
     document.getElementById("test").onclick = function() {
+        asyncPay();
+    };
+    function bcPay() {
         /**
          * click调用错误返回：默认行为console.log(err)
          */
@@ -131,8 +149,18 @@ if (!isset($_GET['code'])){
             console.log(err);
         }
         BC.click(<?php echo json_encode($data) ?>);
-    };
-
+    }
+    function asyncPay() {
+        if (typeof BC == "undefined"){
+            if( document.addEventListener ){
+                document.addEventListener('beecloud:onready', bcPay, false);
+            }else if (document.attachEvent){
+                document.attachEvent('beecloud:onready', bcPay);
+            }
+        }else{
+            bcPay();
+        }
+    }
 </script>
 </body>
 </html>

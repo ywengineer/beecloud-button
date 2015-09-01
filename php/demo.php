@@ -21,7 +21,12 @@ $sign = md5($appId.$title.$amount.$out_trade_no.$appSecret);
 ?>
 <script>
     document.getElementById("test").onclick = function() {
-        
+        asyncPay();
+    };
+    function bcPay() {
+        /**
+         * click调用错误返回：默认行为console.log(err)
+         */
         BC.err = function(data) {
             //注册错误信息接受
             alert(data["ERROR"]);
@@ -41,7 +46,19 @@ $sign = md5($appId.$title.$amount.$out_trade_no.$appSecret);
              */
             "optional": {"test": "willreturn"}
         });
-    };
+
+    }
+    function asyncPay() {
+        if (typeof BC == "undefined"){
+            if( document.addEventListener ){
+                document.addEventListener('beecloud:onready', bcPay, false);
+            }else if (document.attachEvent){
+                document.attachEvent('beecloud:onready', bcPay);
+            }
+        }else{
+            bcPay();
+        }
+    }
 </script>
 </body>
 </html>
