@@ -4,6 +4,8 @@
 
 秒支付Button可以在网页（PC网页或者移动网页）上添加一个支付按钮，Demo示例请看[这里](https://beecloud.cn/activity/jsbutton/?index=4)
 
+![Button GIF](http://7xavqo.com1.z0.glb.clouddn.com/button.gif)
+
 本项目里给出的几种语言的Demo实现，仅供参考
 
 ### 使用前准备
