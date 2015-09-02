@@ -2,7 +2,9 @@
 
 ![MIT](https://img.shields.io/badge/License-MIT-yellow.svg) ![v1.0](https://img.shields.io/badge/Version-v1.0-blue.svg)
 
-秒支付Button可以在网页（PC网页或者移动网页）上添加一个支付按钮，示例请看[这里](https://beecloud.cn/activity/jsbutton/?index=4)
+秒支付Button可以在网页（PC网页或者移动网页）上添加一个支付按钮，Demo示例请看[这里](https://beecloud.cn/activity/jsbutton/?index=4)
+
+本项目里给出的几种语言的Demo实现，仅供参考
 
 ### 使用前准备
 1. BeeCloud[注册](http://beecloud.cn/register/)账号
