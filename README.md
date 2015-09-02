@@ -1,5 +1,9 @@
 ## 秒支付Button
 
+![MIT](https://img.shields.io/badge/License-MIT-yellow.svg) ![v1.0](https://img.shields.io/badge/Version-v1.0-blue.svg)
+
+秒支付Button可以在网页（PC网页或者移动网页）上添加一个支付按钮，示例请看[这里](https://beecloud.cn/activity/jsbutton/?index=4)
+
 ### 使用前准备
 1. BeeCloud[注册](http://beecloud.cn/register/)账号
 2. BeeCloud中创建应用，[填写支付渠道所需参数](http://beecloud.cn/doc/payapply)
@@ -175,5 +179,5 @@ if (!isset($_GET['code'])){
 
 建议使用webhook作为处理支付结果方式，使用请参考[webhook指南](https://github.com/beecloud/beecloud-webhook)
 
-
-
+## 代码许可
+The MIT License (MIT).
