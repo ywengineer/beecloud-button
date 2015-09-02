@@ -2,6 +2,11 @@
 
 ![MIT](https://img.shields.io/badge/License-MIT-yellow.svg) ![v1.0](https://img.shields.io/badge/Version-v1.0-blue.svg)
 
+
+## 简介
+
+本项目的官方GitHub地址是 [https://github.com/beecloud/beecloud-button](https://github.com/beecloud/beecloud-button)
+
 秒支付Button可以在网页（PC网页或者移动网页）上添加一个支付按钮，Demo示例请看[这里](https://beecloud.cn/activity/jsbutton/?index=4)
 
 ![Button GIF](http://7xavqo.com1.z0.glb.clouddn.com/button.gif)
