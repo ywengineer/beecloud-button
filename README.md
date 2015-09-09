@@ -1,6 +1,6 @@
 ## 秒支付Button
 
-![MIT](https://img.shields.io/badge/License-MIT-yellow.svg) ![v1.0](https://img.shields.io/badge/Version-v1.0-blue.svg)
+![license](https://img.shields.io/badge/license-MIT-brightgreen.svg) ![v1.0](https://img.shields.io/badge/Version-v1.0-blue.svg)
 
 
 ## 简介
