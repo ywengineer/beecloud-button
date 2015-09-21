@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <div class="description">
+      这是个秒支付button的Node.js示例，使用的是Express框架
+	  <p><center><button id="test" class="button">点击支付</button></center></p>
+    </div>
+
+    <script id='spay-script' src='https://jspay.beecloud.cn/1/pay/jsbutton/returnscripts?appId=c37d661d-7e61-49ea-96a5-68c34e83db3b'></script>
+  <script>
+    document.getElementById("test").onclick = function() {
+        asyncPay();
+    };
+    function bcPay() {
+    	var  out_trade_no = "<%= OutTradeNo%>";
+    	var sign = "<%= Sign %>";
+        /**
+         * click调用错误返回：默认行为console.log(err)
+         */
+        BC.err = function(data) {
+            //注册错误信息接受
+            alert(data["ERROR"]);
+        }
+        /**
+         * 3. 调用BC.click 接口传递参数
+         */
+        BC.click({
+            "title": "node.js water",
+            "amount": "1",
+            "out_trade_no": out_trade_no, //唯一订单号
+            "trace_id" : "testcustomer",
+            "sign" : sign,
+            /**
+             * optional 为自定义参数对象，目前只支持基本类型的key ＝》 value, 不支持嵌套对象；
+             * 回调时如果有optional则会传递给webhook地址，webhook的使用请查阅文档
+             */
+            "optional": {"test": "willreturn"}
+        });
+
+    }
+    function asyncPay() {
+        if (typeof BC == "undefined"){
+            if( document.addEventListener ){
+                document.addEventListener('beecloud:onready', bcPay, false);
+            }else if (document.attachEvent){
+                document.attachEvent('beecloud:onready', bcPay);
+            }
+        }else{
+            bcPay();
+        }
+    }
+  </script>
+  </body>
+</html>

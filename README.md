@@ -1,4 +1,17 @@
-##秒支付Button集成
+## 秒支付Button
+
+![license](https://img.shields.io/badge/license-MIT-brightgreen.svg) ![v1.0](https://img.shields.io/badge/Version-v1.0-blue.svg)
+
+
+## 简介
+
+本项目的官方GitHub地址是 [https://github.com/beecloud/beecloud-button](https://github.com/beecloud/beecloud-button)
+
+秒支付Button可以在网页（PC网页或者移动网页）上添加一个支付按钮，Demo示例请看[这里](https://beecloud.cn/activity/jsbutton/?index=4)
+
+![Button GIF](http://7xavqo.com1.z0.glb.clouddn.com/button.gif)
+
+本项目里给出的几种语言的Demo实现，仅供参考
 
 ### 使用前准备
 1. BeeCloud[注册](http://beecloud.cn/register/)账号
@@ -84,7 +97,7 @@ PHP示例：
 
 ###微信jsapi示例
 
-微信内网页支付比较特殊，需要自行获取用户的openid，微信提供了各语言的封装的[函数库(点击查看)](https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=11_1)，以下为php在微信网页内使用秒支付button的示例：
+微信内网页支付比较特殊，需要自行获取用户的openid，微信提供了各语言的封装的[函数库(点击查看)](https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=11_1)，以下为php在微信网页内使用秒支付button的示例，dependency/WxPayPubHelper/WxPayPubHelper.php内需要配置为你的微信appId和Secret方可使用：
 
 ~~~
 <?php
@@ -175,5 +188,5 @@ if (!isset($_GET['code'])){
 
 建议使用webhook作为处理支付结果方式，使用请参考[webhook指南](https://github.com/beecloud/beecloud-webhook)
 
-
-
+## 代码许可
+The MIT License (MIT).

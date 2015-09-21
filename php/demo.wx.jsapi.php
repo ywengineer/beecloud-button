@@ -1,18 +1,24 @@
 <?php
 include_once('dependency/WxPayPubHelper/WxPayPubHelper.php');
+
 $jsApi = new JsApi_pub();
 //网页授权获取用户openid============
 //通过code获得openid
 $openid = "";
-if (!isset($_GET['code'])){
-    //触发微信返回code码
-    $url = $jsApi->createOauthUrlForCode("你的微信网页地址");
-    Header("Location: $url");
-} else {
-    //获取code码，以获取openid
-    $code = $_GET['code'];
-    $jsApi->setCode($code);
-    $openid = $jsApi->getOpenId();
+try {
+    if (!isset($_GET['code'])){
+        //触发微信返回code码
+        $url = $jsApi->createOauthUrlForCode("你的微信网页地址");
+        Header("Location: $url");
+    } else {
+        //获取code码，以获取openid
+        $code = $_GET['code'];
+        $jsApi->setCode($code);
+        $openid = $jsApi->getOpenId();
+    }
+} catch (Exception $e) {
+    echo $e->getMessage();
+    exit();
 }
 ?>
 <!DOCTYPE html>
