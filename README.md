@@ -97,7 +97,7 @@ PHP示例：
 
 ###微信jsapi示例
 
-微信内网页支付比较特殊，需要自行获取用户的openid，微信提供了各语言的封装的[函数库(点击查看)](https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=11_1)，以下为php在微信网页内使用秒支付button的示例：
+微信内网页支付比较特殊，需要自行获取用户的openid，微信提供了各语言的封装的[函数库(点击查看)](https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=11_1)，以下为php在微信网页内使用秒支付button的示例，dependency/WxPayPubHelper/WxPayPubHelper.php内需要配置为你的微信appId和Secret方可使用：
 
 ~~~
 <?php
