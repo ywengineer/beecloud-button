@@ -1,6 +1,6 @@
 ## 秒支付Button
 
-![license](https://img.shields.io/badge/license-MIT-brightgreen.svg) ![v1.1.0](https://img.shields.io/badge/Version-v1.0-blue.svg)  
+![license](https://img.shields.io/badge/license-MIT-brightgreen.svg) ![v1.1.0](https://img.shields.io/badge/Version-v1.1.0-blue.svg)  
 
 本项目的官方GitHub地址是 [https://github.com/beecloud/beecloud-button](https://github.com/beecloud/beecloud-button)
 
