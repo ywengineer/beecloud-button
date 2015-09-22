@@ -1,5 +1,11 @@
 BeeCloud Button Changelog
 ==========================
+v1.1 2015年09月22日
++ 新增可选参数event
++ instant_channel, debug
++ event回调参数
++ 更新文档
+==========================
 
 v1.0 2015年09月01日
 + 动态加载script功能
