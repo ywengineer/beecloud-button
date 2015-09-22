@@ -58,14 +58,12 @@ $data["optional"] = json_decode(json_encode(array("hello" => "1")));
         asyncPay();
     };
     function bcPay() {
-        /**
-         * click调用错误返回：默认行为console.log(err)
-         */
-        BC.err = function(err) {
-            //err 为object, 例 ｛”ERROR“ : "xxxx"｝;
-            console.log(err);
-        }
-        BC.click(<?php echo json_encode($data) ?>);
+        BC.click(<?php echo json_encode($data) ?>, {
+            wxJsapiFinish : function(res) {
+                //jsapi接口调用完成后
+                alert(JSON.stringify(res));
+            }
+        });
     }
     function asyncPay() {
         if (typeof BC == "undefined"){
