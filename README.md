@@ -45,7 +45,7 @@ BC.click(data, event);
 out\_trade\_no | String | 支付订单的编号 | 全局唯一,8到32位的**字符或者数字** | "bc1234567" | 是
 title | String | 支付订单的标题 | 小于16汉字或者32个字符 | "你的订单" | 是
 amount | Int | 支付订单的总价(单位:分) | 大于0 | 1 | 是
-sign | String | 订单信息安全签名 |  依次将以下字段（注意是UTF8编码）连接BeeCloud appId、 title、 amount、 out_trade_no、 BeeCloud appSecret, 然后计算连接后的字符串的16位MD5 | 是
+sign | String | 订单信息安全签名 |  依次将以下字段（注意是UTF8编码）连接BeeCloud appId、 title、 amount、 out_trade_no、 BeeCloud appSecret, 然后计算连接后的字符串的32位MD5 | 是
 trace\_id | String | 付款人标识 | 无 | "user" | 是
 return_url | String | 支付成功后跳转地址，微信扫码不支持 | 无 | www.beecloud.cn | 否
 debug | bool | 调试信息开关, 开启后将alert一些信息 | 默认为false | false | 否
