@@ -213,7 +213,7 @@ if (!isset($_GET['code'])){
             if( document.addEventListener ){
                 document.addEventListener('beecloud:onready', bcPay, false);
             }else if (document.attachEvent){
-                document.attachEvent('beecloud:onready', bcPay);
+                document.attachEvent('onload', bcPay);
             }
         }else{
             bcPay();
