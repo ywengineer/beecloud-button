@@ -127,7 +127,7 @@ wxJsapiFail | function(res) | 微信jsapi的接口支付非成功都将调用此
             if( document.addEventListener ){
                 document.addEventListener('beecloud:onready', bcPay, false);
             }else if (document.attachEvent){
-                document.attachEvent('beecloud:onready', bcPay);
+                document.body.attachEvent('onload', bcPay);
             }
         }else{
             bcPay();
