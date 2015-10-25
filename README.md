@@ -49,7 +49,7 @@ sign | String | 订单信息安全签名 |  依次将以下字段（注意是UTF
 trace\_id | String | 付款人标识 | 无 | "user" | 是
 return_url | String | 支付成功后跳转地址，微信扫码不支持 | 无 | www.beecloud.cn | 否
 debug | bool | 调试信息开关, 开启后将alert一些信息 | 默认为false | false | 否
-optional | Object | 支付完成后，webhook将收到的自定义订单相关信息 | 目前只支持javascript基本类型的{key:value}, 不支持嵌套对象 | 否
+optional | Object | 支付完成后，webhook将收到的自定义订单相关信息 | 目前只支持javascript基本类型的{key:value}, 不支持嵌套对象 | ｛"msg":"hello world"｝| 否
 instant\_channel | String | 设置该字段后将直接调用渠道支付，不再显示渠道选择菜单 | 必须为"ali", "wxmp"(native扫码), "wx"(jsapi网页内支付), "un"中的一个 | "ali" | 否
 
 ### 选填参数event说明
