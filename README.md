@@ -13,9 +13,12 @@
 用户在调用BC.click后(比如用户在DOM的click事件中调用BC.click), 秒支付Button的表现形式分为： 
 
 1. （默认）网页上出现支付渠道选择菜单, 点击其中渠道跳转到指定渠道的支付页面, WEB和WAP端效果分别如下图：
-    PC端如下：<br>
-![Button GIF](http://7xavqo.com1.z0.glb.clouddn.com/button2.gif)<br>
-    移动H5端如下：<br>
+    PC端如下：
+
+![Button GIF](http://7xavqo.com1.z0.glb.clouddn.com/button2.gif)
+
+    移动H5端如下：
+    
 ![Button GIF](http://7xavqo.com1.z0.glb.clouddn.com/button_wap.gif)
 
 2. 网页直接跳转到指定渠道的支付页面,这需要设置选填的**instant_channel**参数，见**BC.click接口说明**中的描述
@@ -76,7 +79,7 @@ wxJsapiFail | function(res) | 微信jsapi的接口支付非成功都将调用此
 [Demo 目录](https://github.com/beecloud/beecloud-button/demo/)
 
 ### 示例步骤
-若为移动端H5页面，需加上<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">做移动适配。
+若为移动端H5页面，需加上```<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">```做移动适配。
 
 以下为PHP的代码示例,Javascript传递的参数中sign比较特殊，用来保证订单的信息的完整性，需要集成者自行在服务器端生成；
 
