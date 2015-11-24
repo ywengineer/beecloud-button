@@ -13,9 +13,9 @@
 用户在调用BC.click后(比如用户在DOM的click事件中调用BC.click), 秒支付Button的表现形式分为： 
 
 1. （默认）网页上出现支付渠道选择菜单, 点击其中渠道跳转到指定渠道的支付页面, WEB和WAP端效果分别如下图：
-PC端如下：
+    PC端如下：
 ![Button GIF](http://7xavqo.com1.z0.glb.clouddn.com/button2.gif)
-移动H5端如下：
+    移动H5端如下：
 ![Button GIF](http://7xavqo.com1.z0.glb.clouddn.com/button_wap.gif)
 
 2. 网页直接跳转到指定渠道的支付页面,这需要设置选填的**instant_channel**参数，见**BC.click接口说明**中的描述
