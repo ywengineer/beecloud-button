@@ -76,6 +76,8 @@ wxJsapiFail | function(res) | 微信jsapi的接口支付非成功都将调用此
 [Demo 目录](https://github.com/beecloud/beecloud-button/demo/)
 
 ### 示例步骤
+若为移动端H5页面，需加上<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">做移动适配。
+
 以下为PHP的代码示例,Javascript传递的参数中sign比较特殊，用来保证订单的信息的完整性，需要集成者自行在服务器端生成；
 
 生成规则 : 依次将以下字段（注意是UTF8编码）连接BeeCloud appId、 title、 amount、 out\_trade\_no、 BeeCloud appSecret, 然后计算连接后的字符串的MD5, 该签名用于验证价格，title 和订单的一致
