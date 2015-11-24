@@ -6,7 +6,7 @@
 
 ## 简介
 
-用户通过在Javascript中调用秒支付Button的**BC.click**方法实现"发起支付"的功能,目前支持支付宝、银联、微信支付、百度钱包、京东支付、易宝和快钱,使用效果请参考[在线示例](https://beecloud.cn/activity/jsbutton/?index=4)
+用户通过在Javascript中调用秒支付Button的**BC.click**方法实现“发起支付”的功能，目前支持支付宝、银联、微信支付、百度钱包、京东支付、易宝和快钱，并兼容了PC端页面和移动H5端页面，使用效果请参考[在线示例](https://beecloud.cn/activity/jsbutton/?index=4)
 
 
 ## 使用效果
