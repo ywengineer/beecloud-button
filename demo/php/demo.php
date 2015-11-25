@@ -30,7 +30,6 @@ $sign = md5($appId.$title.$amount.$out_trade_no.$appSecret);
             "title": "<?php echo $title; ?>",
             "amount": <?php echo $amount; ?>,
             "out_trade_no": "<?php echo $out_trade_no;?>", //唯一订单号
-            "trace_id" : "testcustomer", //付款人标识,
             "sign" : "<?php echo $sign;?>",
             /**
              * optional 为自定义参数对象，目前只支持基本类型的key ＝》 value, 不支持嵌套对象；
