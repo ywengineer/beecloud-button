@@ -53,7 +53,6 @@ out\_trade\_no | String | 支付订单的编号 | 全局唯一,8到32位的**字
 title | String | 支付订单的标题 | 小于16汉字或者32个字符 | "你的订单" | 是
 amount | Int | 支付订单的总价(单位:分) | 大于0 | 1 | 是
 sign | String | 订单信息安全签名 |  依次将以下字段（注意是UTF8编码）连接BeeCloud appId、 title、 amount、 out_trade_no、 BeeCloud appSecret, 然后计算连接后的字符串的32位MD5 | | 是
-trace\_id | String | 付款人标识 | 无 | "user" | 是
 return_url | String | 支付成功后跳转地址，微信扫码不支持 | 必须以http://或https://开头 | http://www.beecloud.cn | 否
 debug | bool | 调试信息开关, 开启后将alert一些信息 | 默认为false | false | 否
 optional | Object | 支付完成后，webhook将收到的自定义订单相关信息 | 目前只支持javascript基本类型的{key:value}, 不支持嵌套对象 | ｛"msg":"hello world"｝| 否
@@ -123,7 +122,6 @@ wxJsapiFail | function(res) | 微信jsapi的接口支付非成功都将调用此
             "title": "<?php echo $title; ?>",
             "amount": <?php echo $amount; ?>,
             "out_trade_no": "<?php echo $out_trade_no;?>", //唯一订单号
-            "trace_id" : "testcustomer", //付款人标识
             "sign" : "<?php echo $sign;?>",
             /**
              * optional 为自定义参数对象，目前只支持基本类型的key ＝》 value, 不支持嵌套对象；
@@ -197,8 +195,7 @@ if (!isset($_GET['code'])){
         "title" => "test",
         "amount" => "1",
         "out_trade_no" => "test".time(),
-        "openid" => $openid,
-        "trace_id" => "testcustomer"
+        "openid" => $openid
     );
 
     $appSecret = "39a7a518-9ac8-4a9e-87bc-7885f33cf18c";
