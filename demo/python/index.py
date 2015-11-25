@@ -17,13 +17,12 @@ class SpayButtonHandler(tornado.web.RequestHandler):
     def get(self):
         title = "test"
         out_trade_no = "test" + str(int(time()))
-        trace_id = "testcustomer"
         amount = "1"
         #2 计算签名sign
         md5 = hashlib.md5()
         md5.update(bc_app_id + title + amount + out_trade_no + bc_app_secret)
         sign = md5.hexdigest()
-        self.render("templates/spay-button.html", title=title, amount=amount, out_trade_no=out_trade_no, trace_id=trace_id, sign=sign)
+        self.render("templates/spay-button.html", title=title, amount=amount, out_trade_no=out_trade_no, sign=sign)
 
 def main():
     settings = {"static_path": os.path.join(os.path.dirname(__file__), "static")}
