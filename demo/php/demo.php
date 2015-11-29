@@ -1,11 +1,11 @@
 <?php
-$appId = "c5d1cba1-5e3f-4ba0-941d-9b0a371fe719";
-$appSecret = "39a7a518-9ac8-4a9e-87bc-7885f33cf18c";
+$app_id = "c5d1cba1-5e3f-4ba0-941d-9b0a371fe719";
+$app_secret = "39a7a518-9ac8-4a9e-87bc-7885f33cf18c";
 $title = "你的订单标题";
 $amount = 1;//支付总价
-$out_trade_no = "bc".time();//订单号，需要保证唯一性
+$out_trade_no = "bc" . time();//订单号，需要保证唯一性
 //1.生成sign
-$sign = md5($appId.$title.$amount.$out_trade_no.$appSecret);
+$sign = md5($app_id . $title . $amount . $out_trade_no . $app_secret);
 ?>
 <!DOCTYPE html>
 <html>
@@ -39,6 +39,8 @@ $sign = md5($appId.$title.$amount.$out_trade_no.$appSecret);
         });
 
     }
+    // 这里不直接调用BC.click的原因是防止用户点击过快，BC的JS还没加载完成就点击了支付按钮。
+    // 实际使用过程中，如果用户不可能在页面加载过程中立刻点击支付按钮，就没有必要利用asyncPay的方式，而是可以直接调用BC.click。
     function asyncPay() {
         if (typeof BC == "undefined") {
             if (document.addEventListener) { // 大部分浏览器
