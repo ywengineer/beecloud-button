@@ -41,6 +41,7 @@ String getMessageDigest(String s) {
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <title>spay demo</title>
 </head>
 <body>
@@ -57,7 +58,6 @@ String getMessageDigest(String s) {
         String title = "testPay";
         String amount = "1"; //单位分
         String out_trade_no = "test" + System.currentTimeMillis();
-        String trace_id = "testcustomer";
 
         //2.根据订单参数生成 订单签名 sign
         String sign = getMessageDigest(app_id + title + amount + out_trade_no + app_secret);
@@ -81,7 +81,6 @@ String getMessageDigest(String s) {
             "title":"<%=title%>", //商品名
             "amount":"<%=amount%>",  //总价（分）
             "out_trade_no":"<%=out_trade_no%>", //自定义订单号
-            "trace_id":"<%=trace_id%>", //自定义购买者id
             "sign":"<%=sign%>", //商品信息hash值，含义和生成方式见下文
             "return_url" : "http://payservice.beecloud.cn/spay/result.php", //支付成功后跳转的商户页面,可选，默认为http://payservice.beecloud.cn/spay/result.php
             "optional" : <%=optional%>//可选，自定义webhook的optional回调参数

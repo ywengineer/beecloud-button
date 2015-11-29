@@ -6,31 +6,41 @@
 
 ## 简介
 
-用户通过在Javascript中调用秒支付Button的**BC.click**方法实现"发起支付"的功能,目前支持支付宝、银联、微信支付、百度钱包、京东支付、易宝和快钱,使用效果请参考[在线示例](https://beecloud.cn/activity/jsbutton/?index=4)
+用户通过在Javascript中调用秒支付Button的**BC.click**方法实现“发起支付”的功能，目前支持支付宝、银联、微信支付、百度钱包、京东支付、易宝和快钱，并兼容了PC端页面和移动H5端页面，使用效果请参考[在线示例](https://beecloud.cn/activity/jsbutton/?index=4)
 
 
 ## 使用效果
 用户在调用BC.click后(比如用户在DOM的click事件中调用BC.click), 秒支付Button的表现形式分为： 
 
-1. （默认）网页上出现支付渠道选择菜单, 点击其中渠道跳转到指定渠道的支付页面, 效果如下图：
-![Button GIF](http://7xavqo.com1.z0.glb.clouddn.com/button.gif)
+1\. （默认）网页上出现支付渠道选择菜单，点击其中渠道跳转到指定渠道的支付页面，WEB和WAP端效果分别如下图：
 
-2. 网页直接跳转到指定渠道的支付页面,这需要设置选填的**instant_channel**参数，见**BC.click接口说明**中的描述
+   PC端如下：
+        
+![Button GIF](http://7xavqo.com1.z0.glb.clouddn.com/button2.gif)
+
+   移动H5端如下：
+   
+![Button GIF](http://7xavqo.com1.z0.glb.clouddn.com/button_wap.gif)
+
+2\. 网页直接跳转到指定渠道的支付页面，这需要设置选填的**instant_channel**参数，见**BC.click接口说明**中的描述
 
 
 ## 使用前准备
 
 ### BeeCloud配置
 1. BeeCloud[注册](http://beecloud.cn/register/)账号, 并完成企业认证
+
 2. BeeCloud中创建应用，填写支付渠道所需参数, 可以参考[官网帮助文档](http://beecloud.cn/doc/payapply)
-3. 激活秒支付button功能,进入APP->设置->秒支付button项：
+
+3. 申请渠道参数，并配置BeeCLoud各个支付渠道的参数, 此处请参考官网的[渠道参数帮助页](https://beecloud.cn/doc/payapply/?index=0)
+>BeeCloud中配置参数需要完成企业认证后才能填写!
+
+4. 激活秒支付button功能,进入APP->设置->秒支付button项：
 ![支付设置前](http://7xavqo.com1.z0.glb.clouddn.com/spay-button-before.png)
 
-点选支付渠道开启该支付渠道,同时还可以调整你需要的渠道菜单的显示顺序，点击”保存“后会生成appid对应的**script标签**。
-![支付设置后](http://7xavqo.com1.z0.glb.clouddn.com/spay-button-after.png)
-4. 申请渠道参数，并配置BeeCLoud各个支付渠道的参数, 此处请参考官网的[渠道参数帮助页](https://beecloud.cn/doc/payapply/?index=0)
+点选支付渠道开启该支付渠道,同时还可以调整你需要的渠道菜单的显示顺序，点击”保存“后会生成appid对应的**script标签**。**需要将此script标签放到任何需要使用秒支付Button的网页里**。
 
->BeeCloud中配置参数需要完成企业认证后才能填写!
+![支付设置后](http://7xavqo.com1.z0.glb.clouddn.com/spay-button-after.png)
 
 ## BC.click接口说明
 ### BC.click原型
@@ -45,8 +55,7 @@ BC.click(data, event);
 out\_trade\_no | String | 支付订单的编号 | 全局唯一,8到32位的**字符或者数字** | "bc1234567" | 是
 title | String | 支付订单的标题 | 小于16汉字或者32个字符 | "你的订单" | 是
 amount | Int | 支付订单的总价(单位:分) | 大于0 | 1 | 是
-sign | String | 订单信息安全签名 |  依次将以下字段（注意是UTF8编码）连接BeeCloud appId、 title、 amount、 out_trade_no、 BeeCloud appSecret, 然后计算连接后的字符串的32位MD5 | | 是
-trace\_id | String | 付款人标识 | 无 | "user" | 是
+sign | String | 订单信息安全签名 |  依次将以下字段（注意是UTF8编码）连接BeeCloud appId、 title、 amount、 out_trade_no、 BeeCloud appSecret, 然后计算连接后的字符串的32位MD5 | b6273d932b0aa801d9bd97220f1fb039 | 是
 return_url | String | 支付成功后跳转地址，微信扫码不支持 | 必须以http://或https://开头 | http://www.beecloud.cn | 否
 debug | bool | 调试信息开关, 开启后将alert一些信息 | 默认为false | false | 否
 optional | Object | 支付完成后，webhook将收到的自定义订单相关信息 | 目前只支持javascript基本类型的{key:value}, 不支持嵌套对象 | ｛"msg":"hello world"｝| 否
@@ -70,27 +79,30 @@ wxJsapiFail | function(res) | 微信jsapi的接口支付非成功都将调用此
 
 ### 参考Demo
 本项目里给出的几种语言的Demo实现，仅供参考：
-[Demo 目录](https://github.com/beecloud/beecloud-button/demo/)
+[Demo 目录](https://github.com/beecloud/beecloud-button/tree/master/demo)
 
 ### 示例步骤
+若为移动端H5页面，页面头部需加上```<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">```做移动适配。
+
 以下为PHP的代码示例,Javascript传递的参数中sign比较特殊，用来保证订单的信息的完整性，需要集成者自行在服务器端生成；
 
 生成规则 : 依次将以下字段（注意是UTF8编码）连接BeeCloud appId、 title、 amount、 out\_trade\_no、 BeeCloud appSecret, 然后计算连接后的字符串的MD5, 该签名用于验证价格，title 和订单的一致
 
 ```
 <?php
-	$appId = "你的BeeCloud appId";
-	$appSecret = "你的BeeCloud appSecret";
-	$title = "你的订单标题";
-	$amount = 1;//支付总价
-	$out_trade_no = "bc".time();//订单号，需要保证唯一性
-	//1.生成sign
-	$sign = md5（$appId.$title.$amount.$out_trade_no.$appSecret）;
+$app_id = "c5d1cba1-5e3f-4ba0-941d-9b0a371fe719";
+$app_secret = "39a7a518-9ac8-4a9e-87bc-7885f33cf18c";
+$title = "你的订单标题";
+$amount = 1;//支付总价
+$out_trade_no = "bc" . time();//订单号，需要保证唯一性
+//1.生成sign
+$sign = md5($app_id . $title . $amount . $out_trade_no . $app_secret);
 ?>
 <!DOCTYPE html>
 <html>
 <head lang="en">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <title>demo js button</title>
 </head>
 <body>
@@ -100,19 +112,15 @@ wxJsapiFail | function(res) | 微信jsapi的接口支付非成功都将调用此
 <!--2.添加控制台->APP->设置->秒支付button项获得的script标签-->
 <script id='spay-script' type='text/javascript' src='https://jspay.beecloud.cn/1/pay/jsbutton/returnscripts?appId=c5d1cba1-5e3f-4ba0-941d-9b0a371fe719'></script>
 <script>
-	 //2. 需要发起支付时(示例中绑定在一个按钮的click事件中),调用BC.click方法
+    //3. 需要发起支付时(示例中绑定在一个按钮的click事件中),调用BC.click方法
     document.getElementById("test").onclick = function() {
         asyncPay();
     };
     function bcPay() {
-        /**
-         * 3. 调用BC.click 接口传递参数
-         */
         BC.click({
             "title": "<?php echo $title; ?>",
             "amount": <?php echo $amount; ?>,
             "out_trade_no": "<?php echo $out_trade_no;?>", //唯一订单号
-            "trace_id" : "testcustomer", //付款人标识
             "sign" : "<?php echo $sign;?>",
             /**
              * optional 为自定义参数对象，目前只支持基本类型的key ＝》 value, 不支持嵌套对象；
@@ -120,17 +128,17 @@ wxJsapiFail | function(res) | 微信jsapi的接口支付非成功都将调用此
              */
             "optional": {"test": "willreturn"}
         });
-
     }
+    // 这里不直接调用BC.click的原因是防止用户点击过快，BC的JS还没加载完成就点击了支付按钮。
+    // 实际使用过程中，如果用户不可能在页面加载过程中立刻点击支付按钮，就没有必要利用asyncPay的方式，而是可以直接调用BC.click。
     function asyncPay() {
-        if (typeof BC == "undefined"){
-            if( document.addEventListener ){
+        if (typeof BC == "undefined") {
+            if (document.addEventListener) { // 大部分浏览器
                 document.addEventListener('beecloud:onready', bcPay, false);
-            }else if (document.attachEvent){
-                var fm = document.getElementById("beecloud");
-                fm.attachEvent('onsubmit', bcPay);
+            } else if (document.attachEvent) { // 兼容IE 11之前的版本
+                document.attachEvent('beecloud:onready', bcPay);
             }
-        }else{
+        } else {
             bcPay();
         }
     }
@@ -186,8 +194,7 @@ if (!isset($_GET['code'])){
         "title" => "test",
         "amount" => "1",
         "out_trade_no" => "test".time(),
-        "openid" => $openid,
-        "trace_id" => "testcustomer"
+        "openid" => $openid
     );
 
     $appSecret = "39a7a518-9ac8-4a9e-87bc-7885f33cf18c";
