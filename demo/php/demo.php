@@ -11,6 +11,7 @@ $sign = md5($app_id . $title . $amount . $out_trade_no . $app_secret);
 <html>
 <head lang="en">
     <meta charset="UTF-8">
+    <!--用于移动端H5页面适配，若PC端页面可不引用-->
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <title>demo js button</title>
 </head>
