@@ -40,13 +40,13 @@ $sign = md5($appId.$title.$amount.$out_trade_no.$appSecret);
 
     }
     function asyncPay() {
-        if (typeof BC == "undefined"){
-            if( document.addEventListener ){
+        if (typeof BC == "undefined") {
+            if (document.addEventListener) { // 大部分浏览器
                 document.addEventListener('beecloud:onready', bcPay, false);
-            }else if (document.attachEvent){
+            } else if (document.attachEvent) { // 兼容IE 11之前的版本
                 document.attachEvent('beecloud:onready', bcPay);
             }
-        }else{
+        } else {
             bcPay();
         }
     }
