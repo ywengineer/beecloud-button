@@ -79,7 +79,7 @@ wxJsapiFail | function(res) | 微信jsapi的接口支付非成功都将调用此
 
 ### 参考Demo
 本项目里给出的几种语言的Demo实现，仅供参考：
-[Demo 目录](https://github.com/beecloud/beecloud-button/demo/)
+[Demo 目录](https://github.com/beecloud/beecloud-button/tree/master/demo)
 
 ### 示例步骤
 若为移动端H5页面，页面头部需加上```<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">```做移动适配。
