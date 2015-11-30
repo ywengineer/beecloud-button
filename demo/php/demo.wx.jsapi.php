@@ -2,11 +2,11 @@
 include_once('dependency/WxPayPubHelper/WxPayPubHelper.php');
 
 $jsApi = new JsApi_pub();
-//网页授权获取用户openid============
+//网页授权获取用户openid
 //通过code获得openid
 $openid = "";
 try {
-    if (!isset($_GET['code'])){
+    if (!isset($_GET['code'])) {
         //触发微信返回code码
         $url = $jsApi->createOauthUrlForCode("你的微信网页地址");
         Header("Location: $url");
@@ -38,7 +38,7 @@ try {
 <script id='spay-script' type='text/javascript' src='https://jspay.beecloud.cn/1/pay/jsbutton/returnscripts?appId=c5d1cba1-5e3f-4ba0-941d-9b0a371fe719'></script>
 <?php
 $data = array(
-    "appId" =>  "c5d1cba1-5e3f-4ba0-941d-9b0a371fe719",
+    "app_id" =>  "c5d1cba1-5e3f-4ba0-941d-9b0a371fe719",
     "title" => "test",
     "amount" => "1",
     "out_trade_no" => "test".time(),
@@ -46,17 +46,19 @@ $data = array(
     "trace_id" => "testcustomer"
 );
 
-$appSecret = "39a7a518-9ac8-4a9e-87bc-7885f33cf18c";
-$sign = md5($data['appId'].$data['title'].$data['amount'].$data['out_trade_no'].$appSecret);
+$app_secret = "39a7a518-9ac8-4a9e-87bc-7885f33cf18c";
+$sign = md5($data['app_id'] . $data['title'] . $data['amount'] . $data['out_trade_no'] . $app_secret);
 $data["sign"] = $sign;
 $data["optional"] = json_decode(json_encode(array("hello" => "1")));
 //    $data["openid"] ="o3kKrjlUsMnv__cK5DYZMl0JoAkY";   //o3kKrjlUsMnv__cK5DYZMl0JoAkY   oOCyauJ6nKcXiIIQ_bixiQpaL6PQ(me)
 ?>
+
 <div><?php echo json_encode($data) ?></div>
 <script>
     document.getElementById("test").onclick = function() {
         asyncPay();
     };
+
     function bcPay() {
         BC.click(<?php echo json_encode($data) ?>, {
             wxJsapiFinish : function(res) {
@@ -65,18 +67,20 @@ $data["optional"] = json_decode(json_encode(array("hello" => "1")));
             }
         });
     }
+    
+    // 这里不直接调用BC.click的原因是防止用户点击过快，BC的JS还没加载完成就点击了支付按钮。
+    // 实际使用过程中，如果用户不可能在页面加载过程中立刻点击支付按钮，就没有必要利用asyncPay的方式，而是可以直接调用BC.click。
     function asyncPay() {
-        if (typeof BC == "undefined"){
-            if( document.addEventListener ){
+        if (typeof BC == "undefined") {
+            if (document.addEventListener) { // 大部分浏览器
                 document.addEventListener('beecloud:onready', bcPay, false);
-            }else if (document.attachEvent){
+            } else if (document.attachEvent) { // 兼容IE 11之前的版本
                 document.attachEvent('beecloud:onready', bcPay);
             }
-        }else{
+        } else {
             bcPay();
         }
     }
-
 </script>
 </body>
 </html>
