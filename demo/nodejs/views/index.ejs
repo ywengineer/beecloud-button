@@ -11,7 +11,7 @@
 	  <p><center><button id="test" class="button">点击支付</button></center></p>
     </div>
 
-    <script id='spay-script' src='https://jspay.beecloud.cn/1/pay/jsbutton/returnscripts?appId=c37d661d-7e61-49ea-96a5-68c34e83db3b'></script>
+    <script id='spay-script' src='https://jspay.beecloud.cn/1/pay/jsbutton/returnscripts?appId=c5d1cba1-5e3f-4ba0-941d-9b0a371fe719'></script>
   <script>
     document.getElementById("test").onclick = function() {
         asyncPay();
@@ -30,7 +30,7 @@
          * 3. 调用BC.click 接口传递参数
          */
         BC.click({
-            "title": "node.js water",
+            "title": "中文 node.js water",
             "amount": "1",
             "out_trade_no": out_trade_no, //唯一订单号
             "sign" : sign,
