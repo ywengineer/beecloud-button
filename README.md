@@ -245,7 +245,6 @@ $data["optional"] = json_decode(json_encode(array("hello" => "1")));
 </html>
 ~~~
 
-
 ##处理支付结果
 各支付渠道通常会提供多种方式获取支付结果：
 
@@ -254,6 +253,3 @@ $data["optional"] = json_decode(json_encode(array("hello" => "1")));
 3. 支付渠道在支付成功后，将相关通知（俗称’回调‘）商户指定的url（BeeCloud统一封装为webhook并且统一支持用户自定义回调参数’optional‘）
 
 建议使用webhook作为处理支付结果方式，使用请参考[webhook指南](https://github.com/beecloud/beecloud-webhook)
-
-## 代码许可
-The MIT License (MIT).
