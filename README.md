@@ -201,8 +201,7 @@ $data = array(
     "title" => "test",
     "amount" => "1",
     "out_trade_no" => "test".time(),
-    "openid" => $openid,
-    "trace_id" => "testcustomer"
+    "openid" => $openid
 );
 
 $app_secret = "39a7a518-9ac8-4a9e-87bc-7885f33cf18c";
