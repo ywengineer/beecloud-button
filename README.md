@@ -1,4 +1,4 @@
-g# 秒支付Button
+## 秒支付Button
 
 ![license](https://img.shields.io/badge/license-MIT-brightgreen.svg) ![v1.1.0](https://img.shields.io/badge/Version-v1.1.0-blue.svg)  
 
