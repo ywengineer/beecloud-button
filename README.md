@@ -1,4 +1,4 @@
-## 秒支付Button
+g# 秒支付Button
 
 ![license](https://img.shields.io/badge/license-MIT-brightgreen.svg) ![v1.1.0](https://img.shields.io/badge/Version-v1.1.0-blue.svg)  
 
@@ -148,7 +148,9 @@ $sign = md5($app_id . $title . $amount . $out_trade_no . $app_secret);
 </html>
 ```
 
-###微信JSAPI示例
+### 微信JSAPI示例
+
+微信JSAPI支付使用之前，需要配置相应的参数，主要包括：授权回调页面域名、支付授权目录、API安全密钥等，详情请参考[快速开始-渠道申请及参数配置帮助](https://beecloud.cn/doc/payapply/?index=3)
 
 微信内使用网页JSAPI支付比较特殊，需要自行获取用户的openid，微信提供了各语言的封装的[函数库(点击查看)](https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=11_1), BeeCloud各语言SDK下微信JSAPI的DEMO中也可以作为参考。
 
