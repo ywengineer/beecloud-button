@@ -32,15 +32,12 @@
 
 2. BeeCloud中创建应用，填写支付渠道所需参数, 可以参考[官网帮助文档](http://beecloud.cn/doc/payapply)
 
-3. 申请渠道参数，并配置BeeCLoud各个支付渠道的参数, 此处请参考官网的[渠道参数帮助页](https://beecloud.cn/doc/payapply/?index=0)
+3. 申请渠道参数，并配置BeeCLoud各个支付渠道的参数，此处请参考官网的[渠道参数帮助页](https://beecloud.cn/doc/payapply/?index=0)
 >BeeCloud中配置参数需要完成企业认证后才能填写!
 
-4. 激活秒支付button功能,进入APP->设置->秒支付button项：
-![支付设置前](http://7xavqo.com1.z0.glb.clouddn.com/spay-button-before.png)
+4. 激活秒支付button功能，进入APP->设置->秒支付button项，拖拽支付渠道开启该支付渠道，同时还可以调整你需要的渠道菜单的显示顺序，点击”保存“后会生成appid对应的**script标签**。**需要将此script标签放到任何需要使用秒支付Button的网页里**。
 
-点选支付渠道开启该支付渠道,同时还可以调整你需要的渠道菜单的显示顺序，点击”保存“后会生成appid对应的**script标签**。**需要将此script标签放到任何需要使用秒支付Button的网页里**。
-
-![支付设置后](http://7xavqo.com1.z0.glb.clouddn.com/spay-button-after.png)
+![支付设置前](http://beeclouddoc.qiniudn.com/1111.png)
 
 ## BC.click接口说明
 ### BC.click原型
