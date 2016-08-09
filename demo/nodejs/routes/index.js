@@ -23,7 +23,7 @@ router.get('/', function(req, res, next) {
     var outTradeNo = uuid.v4().replace(/-/g, '');
     var data = appid + title + amount + outTradeNo + secret;
     var signStr = sign.createHash('md5').update(data, 'utf8').digest("hex");
-    res.render('index', { title: 'JSButton', OutTradeNo: outTradeNo, Sign: signStr, days: days, passport: passport, title: title, amount: amount });
+    res.render('index', { title: title, OutTradeNo: outTradeNo, Sign: signStr, days: days, passport: passport, amount: amount });
 });
 
 module.exports = router;
